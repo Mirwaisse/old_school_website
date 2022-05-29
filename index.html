@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mirwaisse's homepage</title>
+	<link rel="stylesheet" type="text/css" href="plugins/clippy/clippy.css" media="all">
+
+	<style>
+		body {
+			padding-top: 10px;
+			padding-bottom: 50px;
+			background: url("resources/stars-background.gif");
+			color: white;
+			max-width: 800px;
+			margin: 0 auto;
+			font-size: 120%;
+		}
+
+		html {
+			cursor: url("resources/cursor.gif"), auto;
+		}
+
+		a:link {
+			color: gainsboro;
+			background-color: transparent;
+			text-decoration: none;
+		}
+
+		a:visited {
+			color: gray;
+			background-color: transparent;
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<marquee><span id="date"></span></marquee>
+
+	<div style="text-align: center">
+		<img src="resources/img/ani-constructionguy.gif">
+		<img src="resources/img/thispageisunderconstruction.gif">
+		<img src="resources/img/ani-constructionguy.gif">
+	</div>
+
+	<p>Hello! Welcome to my corner of the internet.</p>
+
+	<h1>My notes</h1>
+
+	<p>About:</p>
+
+	<p>
+		<a href="http://35.231.210.220:8080/share/2ZCYxMIp1PvD">Machine learning</a>
+		<br>
+		<a href="http://35.231.210.220:8080/share/V6jR0zKhGQpi">Maths</a>
+		<br>
+		<a href="http://35.231.210.220:8080/share/b6Z8ry3F0oIP">Computer science</a>
+		<br>
+		<a href="http://35.231.210.220:8080/share/ghYKxV9gL2t5">Programming languages</a>
+		<br>
+		<a href="http://35.231.210.220:8080/share/M7Yvljkv59X7">Webdev</a>
+	</p>
+
+	<br>
+	<br>
+	<br>
+
+	<div style="text-align: center">
+		<img src="resources/buttons/email.gif">
+		<br>
+		<img src="resources/buttons/wwwbutton.gif">
+		<img src="resources/buttons/anybrowser2.gif">
+		<img src="resources/buttons/bestviewedcomp.gif">
+		<img src="resources/buttons/made_with_windows.gif">
+	</div>
+
+
+	<script src="plugins/oneko/oneko.js"></script>
+
+	<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
+	<script src="plugins/clippy/clippy.min.js"></script>
+
+	<script type="text/javascript">
+		clippy.load('Merlin', function (agent) {
+			agent.moveTo($(window).width() * 0.8, $(window).height() * 0.8);
+			agent.show();
+			setTimeout(function () {
+				agent.speak("Welcome to my page!");
+			}, 2000);
+		});
+
+		clippy.load('Clippy', function (agent) {
+			agent.moveTo($(window).width() * 0.8 - 100, $(window).height() * 0.8 + 30);
+			agent.show();
+		});
+	</script>
+
+	<script>
+		function displayDate() {
+			var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+			var prnDt = 'Today is ' + new Date().toLocaleTimeString('en-us', options);
+			document.getElementById("date").innerHTML = prnDt;
+		}
+		displayDate()
+		setInterval(displayDate, 1000);
+	</script>
+
+</body>
