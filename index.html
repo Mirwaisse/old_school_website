@@ -7,7 +7,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mirwaisse's homepage</title>
 	<link rel="icon" href="resources/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="plugins/clippy/clippy.css" media="all">
 
 	<style>
 		body {
@@ -45,7 +44,7 @@
 </head>
 
 <body>
-	<marquee><span id="date"></span></marquee>
+	<div style="text-align: center" id="date"></div>
 
 	<div style="text-align: center">
 		<img src="resources/img/ani-constructionguy.gif">
@@ -86,24 +85,6 @@
 
 
 	<script src="plugins/oneko/oneko.js"></script>
-
-	<script src="https://code.jquery.com/jquery-1.7.min.js"></script>
-	<script src="plugins/clippy/clippy.min.js"></script>
-
-	<script type="text/javascript">
-		clippy.load('Merlin', function (agent) {
-			agent.moveTo($(window).width() * 0.8, $(window).height() * 0.8);
-			agent.show();
-			setTimeout(function () {
-				agent.speak("Welcome to my page!");
-			}, 2000);
-		});
-
-		clippy.load('Clippy', function (agent) {
-			agent.moveTo($(window).width() * 0.8 - 100, $(window).height() * 0.8 + 30);
-			agent.show();
-		});
-	</script>
 
 	<script>
 		function displayDate() {
