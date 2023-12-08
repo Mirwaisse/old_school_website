@@ -70,6 +70,12 @@
 			font-family: Times Pixelated;
 			src: url(resources/fonts/TIMES.TTF-16-Regular-fa46b8e0f87ca255fb212abd7b50554b2c9335b09da60399ec65001cea25fa8b.woff);
 		}
+
+		@media only screen and (max-width: 600px) {
+            .ascii-element {
+                font-size: 0.45rem;
+            }
+        }
 	</style>
 </head>
 
@@ -148,7 +154,7 @@
 
 	<script>
 		var element = document.querySelector('.ascii-element');
-		AsciiMorph(element, { x: 80, y: 10 });
+		AsciiMorph(element, { x: 0, y: 0 });
 
 		var ascii_images = [
 `⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⡀⠀⠀⠀⠀⢀⣄⣀⣀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
