@@ -17,38 +17,62 @@
 			margin: 0 auto;
 			font-size: 120%;
 			font-family: Times Pixelated;
+			background-color: black;
 		}
 
 		html {
 			cursor: url("resources/cursor.gif"), auto;
 		}
 
-		.stars-background {
-			z-index: -1;
-			background-image: url("resources/stars-background.gif");
+		.stars-background,
+		.stars-background-small {
 			background-repeat: repeat;
 			width: 100%;
 			height: 100%;
-			animation: background-scroll 25s linear infinite;
+			transform-origin: top left;
+			transform: scale(1);
 			position: fixed;
 			top: 0;
 			left: 0;
 		}
 
+		.stars-background {
+			animation: background-scroll 20s linear infinite;
+			background-image: url("resources/space_background.gif");
+			z-index: -1;
+		}
+
+		.stars-background-small {
+			animation: background-scroll-small 20s linear infinite;
+			background-image: url("resources/space_background_small.gif");
+			z-index: -2;
+		}
+
 		@keyframes background-scroll {
 			0% {
 				background-position: 0px 0px;
-				filter: opacity(100%)
 			}
 
 			50% {
-				background-position: 0px -300px;
-				filter: opacity(100%)
+				background-position: 0px -234px;
 			}
 
-			to {
-				background-position: 0px -600px;
-				filter: opacity(100%)
+			100% {
+				background-position: 0px -468px;
+			}
+		}
+
+		@keyframes background-scroll-small {
+			0% {
+				background-position: 0px 0px;
+			}
+
+			50% {
+				background-position: 0px -117px;
+			}
+
+			100% {
+				background-position: 0px -234px;
 			}
 		}
 
@@ -81,6 +105,8 @@
 
 <body>
 	<div class="stars-background"></div>
+	<div class="stars-background-small"></div>
+
 	<header style="text-align: center">
 		<div id="date"></div>
 		<div>
