@@ -8,7 +8,7 @@
 	<title>Mirwaisse's homepage</title>
 	<meta name="description" content="My personal homepage.">
 	<link rel="icon" href="resources/favicon.ico">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<style>
 		body {
@@ -158,7 +158,7 @@
 
 	</div>
 
-	<script>
+	<script defer>
 		const fetchNumbers = async () => {
 			const response = await fetch("https://numbers.mirwaisse.net/");
 			const data = await response.json();
