@@ -5,7 +5,11 @@ export default {
 			if (value === null) {
 				return new Response('Value not found', { status: 404 });
 			}
-			return new Response(value);
+			let response = new Response(value);
+			response.headers.set('Access-Control-Allow-Origin', '*');
+			response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+			response.headers.set('Access-Control-Allow-Headers', 'Content-Type');
+			return response;
 		} catch (err) {
 			console.error(`KV returned error: ${err}`);
 			return new Response(err, { status: 500 });
