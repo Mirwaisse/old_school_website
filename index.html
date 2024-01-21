@@ -8,6 +8,7 @@
 	<title>Mirwaisse's homepage</title>
 	<meta name="description" content="My personal homepage.">
 	<link rel="icon" href="resources/favicon.ico">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<style>
 		body {
@@ -150,6 +151,59 @@
 		and the wisdom to distinguish<br>
 		the one from the other.
 	</blockquote>
+
+	<div style="text-align: center">
+		<canvas id="numbers"></canvas>
+		<p>The numbers... What do they mean?</p>
+
+	</div>
+
+	<script>
+		const fetchNumbers = async () => {
+			const response = await fetch("https://numbers.mirwaisse.net/");
+			const data = await response.json();
+
+			const keys = Object.keys(data).sort();
+			const values = keys.map(key => data[key]);
+
+			const ctx = document.querySelector('#numbers').getContext('2d');
+			const myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: keys,
+					datasets: [{
+						label: 'Quantity',
+						data: values,
+						fill: false,
+						borderColor: 'rgb(75, 192, 192)',
+						tension: 0.1
+					}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true,
+							ticks: {
+								color: 'white'
+							}
+						},
+						x: {
+							ticks: {
+								color: 'white'
+							}
+						}
+					},
+					plugins: {
+						legend: {
+							display: false
+						}
+					}
+				}
+			});
+		};
+
+		fetchNumbers();
+	</script>
 
 	<div style="text-align: center">
 		<img src="resources/buttons/email.gif" alt="Email me. But what's my adress?" width="88" height="31">
