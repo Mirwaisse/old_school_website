@@ -8,7 +8,6 @@
 	<title>Mirwaisse's homepage</title>
 	<meta name="description" content="My personal homepage.">
 	<link rel="icon" href="resources/favicon.ico">
-	<script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 	<style>
 		body {
@@ -178,53 +177,6 @@
 
 	</div>
 
-	<script defer>
-		const fetchNumbers = async () => {
-			const response = await fetch("https://numbers.mirwaisse.net/");
-			const data = await response.json();
-
-			const keys = Object.keys(data).sort();
-			const values = keys.map(key => data[key]);
-
-			const ctx = document.querySelector('#numbers').getContext('2d');
-			const myChart = new Chart(ctx, {
-				type: 'line',
-				data: {
-					labels: keys,
-					datasets: [{
-						label: 'Quantity',
-						data: values,
-						fill: false,
-						borderColor: 'rgb(75, 192, 192)',
-						tension: 0.1
-					}]
-				},
-				options: {
-					scales: {
-						y: {
-							beginAtZero: true,
-							ticks: {
-								color: 'white'
-							}
-						},
-						x: {
-							ticks: {
-								color: 'white'
-							}
-						}
-					},
-					plugins: {
-						legend: {
-							display: false
-						}
-					}
-				}
-			});
-		};
-
-		fetchNumbers();
-	</script>
-
 	<div style="text-align: center">
 		<img src="resources/buttons/email.gif" alt="Email me. But what's my adress?" width="88" height="31">
 		<br>
@@ -343,6 +295,55 @@
 			AsciiMorph.morph(ascii_images[current_index]);
 			current_index = (current_index + 1) % ascii_images.length;
 		}, 5000);
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<script>
+		const fetchNumbers = async () => {
+			const response = await fetch("https://numbers.mirwaisse.net/");
+			const data = await response.json();
+
+			const keys = Object.keys(data).sort();
+			const values = keys.map(key => data[key]);
+
+			const ctx = document.querySelector('#numbers').getContext('2d');
+			const myChart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: keys,
+					datasets: [{
+						label: 'Quantity',
+						data: values,
+						fill: false,
+						borderColor: 'rgb(75, 192, 192)',
+						tension: 0.1
+					}]
+				},
+				options: {
+					scales: {
+						y: {
+							beginAtZero: true,
+							ticks: {
+								color: 'white'
+							}
+						},
+						x: {
+							ticks: {
+								color: 'white'
+							}
+						}
+					},
+					plugins: {
+						legend: {
+							display: false
+						}
+					}
+				}
+			});
+		};
+
+		fetchNumbers();
 	</script>
 
 	<script>
